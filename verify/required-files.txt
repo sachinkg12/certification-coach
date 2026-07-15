@@ -5,3 +5,4 @@ LICENSE
 .gitignore
 references/state-schema.md
 references/engines/provenance-engine.md
+references/commands/discover.md
