@@ -56,12 +56,12 @@ certicoach/                        # git repo root == installed skill
   references/
     commands/                      # one file per module (see §5)
       discover.md  profile.md  diagnose.md  gaps.md  plan.md
-      resources.md  learn.md  lab.md  quiz.md  mock.md  review.md
-      readiness.md  logistics.md  postexam.md  progress.md
+      resources.md  learn.md  explain.md  lab.md  quiz.md  mock.md
+      review.md  readiness.md  logistics.md  postexam.md  progress.md
     engines/                       # shared cross-cutting logic, called by many commands (see §6)
       provenance-engine.md  assessment-engine.md  priority-engine.md
       adaptive-engine.md  readiness-engine.md  spaced-repetition-engine.md
-      question-generator.md
+      question-generator.md  analogy-engine.md
     state-schema.md                # canonical .certicoach/ file formats
     coaching-voice.md              # explainability + tone rules
 ```
@@ -117,7 +117,8 @@ brief.
 | `gaps` | 4 | Domain readiness table (weight, current level, priority). `Priority = ExamWeight × KnowledgeGap × ForgettingRisk`. |
 | `plan` | 5 | Generate the 6 path archetypes (fast-track / balanced / deep-mastery / weekend-only / experienced-professional / beginner); user selects; weekly granularity — what/why/objectives-covered/material/hands-on/revision/practice-target/exit-criteria. No vague "study X for 3 days" items. |
 | `resources` | 6 | Curate a **minimum-sufficient** set across 9 categories (official guide, official docs, official training, books, video, labs, community notes, practice exams, cheat sheets). Track version-match, cost, est. time, difficulty, domain coverage, last-updated, primary/supplementary. Avoid overlapping recommendations. |
-| `learn` | 8 | Adaptive teaching loop: evaluate → explain why right/wrong → name underlying misconception → generate remedial micro-lesson → ask a related-but-different question → update the plan. |
+| `learn` | 8 | Adaptive teaching loop: evaluate → explain why right/wrong → name underlying misconception → generate remedial micro-lesson → ask a related-but-different question → update the plan. Invokes `analogy-engine` automatically when a misconception is rooted in confused/abstract terminology. |
+| `explain` | — | Translate tough exam wording into plain language plus a concrete real-world analogy (via `analogy-engine`), then map the analogy back to the exact exam terminology and note where the analogy breaks down. |
 | `lab` | 7 | Generate hands-on work: labs, troubleshooting, config tasks, architecture decisions, CLI exercises, code snippets, incident scenarios, "what next?" Judges reasoning and implementation, not just final answer. |
 | `quiz` | 10 | Assessment modes: topic, mixed-domain, timed mini-tests, oral questioning, rapid-fire terminology, explanation-based, adaptive. Sometimes asks the user to explain why the *other* options are wrong. |
 | `mock` | 11 | Realistic full simulation: question count, duration, domain distribution, difficulty progression, flag-for-review, negative wording, scenario length, time pressure, break rules, multi-select formats; simulates decision-making under uncertainty. |
@@ -158,6 +159,20 @@ Logic used by multiple commands lives once in `references/engines/`.
 - **question-generator** — produces original questions mapped to public exam
   objectives, always labeled `[GENERATED PRACTICE]`, deduped against
   `question-attempts.md`. Never presented as leaked/real exam questions.
+- **analogy-engine** — turns tough, abstract exam wording into a concrete
+  real-world analogy drawn from everyday operations (not more jargon). Example:
+  publish/subscribe explained as a notice pinned to a board that every
+  interested team subscribes to, each getting its own copy, so the announcer
+  posts once and never needs to know who is listening. Every analogy ships with
+  two mandatory companions: (a) the precise technical restatement mapped back to
+  the exam's exact terminology, and (b) an explicit **"where this analogy breaks
+  down"** caveat, because a leaky analogy manufactures the very misconceptions
+  the skill exists to prevent (e.g. the board analogy must note that subscribers
+  get independent copies, ordering isn't guaranteed, and the announcer doesn't
+  wait for slow readers). Analogies are labeled explanatory aids, never
+  presented as official exam wording. Called on demand by `explain` and
+  automatically by `learn` when a misconception is rooted in terminology
+  confusion.
 
 ## 7. Orchestration & session protocol
 
@@ -208,7 +223,8 @@ its own.
 2. **Assess** — `profile`, assessment-engine, `diagnose`, priority-engine,
    `gaps`. → Personalized readiness picture.
 3. **Plan & teach** — `plan` (6 archetypes), question-generator, `learn` +
-   adaptive-engine, `quiz`. → Core study loop.
+   adaptive-engine, analogy-engine + `explain`, `quiz`. → Core study loop with
+   plain-language analogies for tough wording.
 4. **Retention & rigor** — spaced-repetition-engine, `review`, mistake-ledger
    wiring, `lab`, `resources`. → Memory system + hands-on + curation.
 5. **Exam & beyond** — `mock`, readiness-engine + `readiness`, `logistics`,
