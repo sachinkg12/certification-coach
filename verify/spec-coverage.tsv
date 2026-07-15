@@ -18,3 +18,4 @@ spec-5-learn	references/commands/learn.md	module 8 adaptive teaching loop
 spec-5-explain	references/commands/explain.md	explain command plain-language analogies
 spec-7-orchestration	SKILL.md	session protocol + priority hierarchy + routing
 spec-7-explainability	references/coaching-voice.md	explainability narrative
+spec-5-quiz	references/commands/quiz.md	module 10 assessment modes

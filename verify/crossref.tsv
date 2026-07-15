@@ -6,3 +6,5 @@ references/engines/adaptive-engine.md	assessment-engine
 references/commands/learn.md	adaptive-engine
 references/commands/learn.md	analogy-engine
 references/commands/explain.md	analogy-engine
+references/commands/quiz.md	question-generator
+references/commands/quiz.md	assessment-engine

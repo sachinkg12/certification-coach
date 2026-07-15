@@ -18,3 +18,4 @@ references/engines/analogy-engine.md
 references/commands/learn.md
 references/commands/explain.md
 references/coaching-voice.md
+references/commands/quiz.md
