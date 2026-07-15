@@ -26,3 +26,5 @@ references/commands/discover.md	## Research protocol
 references/commands/discover.md	## Outputs
 references/commands/profile.md	## Inputs
 references/commands/profile.md	## Outputs
+references/engines/assessment-engine.md	## Six-way classifier
+references/engines/assessment-engine.md	## Confidence calibration

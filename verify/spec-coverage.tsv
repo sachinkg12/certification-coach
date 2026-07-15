@@ -5,3 +5,4 @@ spec-8-provenance	references/engines/provenance-engine.md	3-tier labeling + prov
 spec-8-version	references/engines/provenance-engine.md	version awareness alerts
 spec-5-discover	references/commands/discover.md	module 1 discovery+validation
 spec-5-profile	references/commands/profile.md	module 2 candidate profiling
+spec-6-assessment	references/engines/assessment-engine.md	six-way answer classifier + calibration
