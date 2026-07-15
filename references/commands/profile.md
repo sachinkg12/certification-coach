@@ -17,7 +17,7 @@ defined in `state-schema.md`.
 
 ## Inputs
 
-`profile` elicits ten broad input categories from the user, one at a time, in a
+`profile` elicits eleven broad input categories from the user, one at a time, in a
 natural conversational style — not a form dump. If the user's opening message
 already supplies some of these (e.g., "I'm a DevOps engineer with 8 years
 experience, targeting November, 20 hours per week"), acknowledge what was
