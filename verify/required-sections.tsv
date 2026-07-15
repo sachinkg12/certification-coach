@@ -17,3 +17,7 @@ references/state-schema.md	### spaced-repetition.md
 references/state-schema.md	### question-attempts.md
 references/state-schema.md	### readiness.md
 references/state-schema.md	### progress-log.md
+references/engines/provenance-engine.md	## Content tiers
+references/engines/provenance-engine.md	## Persistence rule
+references/engines/provenance-engine.md	## Version-awareness alerts
+references/engines/provenance-engine.md	## No-web degradation

@@ -1,3 +1,5 @@
 # spec-id<TAB>implementing-file<TAB>label — one row per numbered spec requirement
 spec-9	README.md	distribution/install docs
 spec-4	references/state-schema.md	per-user state data model
+spec-8-provenance	references/engines/provenance-engine.md	3-tier labeling + provenance
+spec-8-version	references/engines/provenance-engine.md	version awareness alerts
