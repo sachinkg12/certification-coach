@@ -22,3 +22,4 @@ references/commands/quiz.md
 references/commands/lab.md
 references/engines/spaced-repetition-engine.md
 references/commands/review.md
+references/commands/resources.md
