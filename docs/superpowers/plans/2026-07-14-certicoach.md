@@ -136,7 +136,7 @@ done < verify/required-sections.tsv
 echo "== forbidden patterns absent (repo-wide, excluding .git and verify/) =="
 while IFS=$'\t' read -r pat reason; do
   [ -z "${pat:-}" ] && continue; case "$pat" in \#*) continue;; esac
-  if grep -rIl --exclude-dir=.git --exclude-dir=verify -- "$pat" . >/dev/null 2>&1; then
+  if grep -rIl --exclude-dir=.git --exclude-dir=verify --exclude-dir=docs -- "$pat" . >/dev/null 2>&1; then
     bad "found forbidden pattern '$pat' ($reason)";
   else pass "absent: $pat"; fi
 done < verify/forbidden-patterns.tsv
@@ -320,9 +320,8 @@ spec-8-version	references/engines/provenance-engine.md	version awareness alerts
 - [ ] **Step 1: Add failing checks.** Append to `required-files.txt`: `references/commands/discover.md`. Append to `required-sections.tsv`: the six elicited inputs heading `## Inputs`, `## Research protocol`, `## Outputs`. Append to `crossref.tsv`:
 ```
 references/commands/discover.md	provenance-engine
-references/commands/discover.md	exam-facts
 ```
-Append to `spec-coverage.tsv`: `spec-5-discover	references/commands/discover.md	module 1 discovery+validation`.
+(Cross-ref tokens must name files under `references/` only; state files like `exam-facts.md` are validated via their `state-schema.md` templates, not crossref.) Append to `spec-coverage.tsv`: `spec-5-discover	references/commands/discover.md	module 1 discovery+validation`.
 
 - [ ] **Step 2: Run harness (expect FAIL)** — `bash verify/verify.sh`.
 
@@ -344,7 +343,7 @@ Author `references/engines/assessment-engine.md`: the 6-way classifier (knows / 
 
 ## Task 8: `diagnose` command
 
-Author `references/commands/diagnose.md` (module 3): baseline test across every domain — conceptual + scenario + hands-on/debugging; per-answer confidence rating + explicit "I guessed"; classify via assessment-engine; write `diagnostic.md`. crossref → `assessment-engine`, `diagnostic`. spec-coverage `spec-5-diagnose`. Commit.
+Author `references/commands/diagnose.md` (module 3): baseline test across every domain — conceptual + scenario + hands-on/debugging; per-answer confidence rating + explicit "I guessed"; classify via assessment-engine; write `diagnostic.md`. crossref → `assessment-engine`. spec-coverage `spec-5-diagnose`. Commit.
 
 ## Task 9: Priority engine
 
@@ -362,13 +361,7 @@ Author `references/commands/plan.md` (module 5): generate the 6 path archetypes 
 
 ## Task 12: Question generator engine
 
-Author `references/engines/question-generator.md`: original questions mapped to public objectives, always labeled `[GENERATED PRACTICE]`, deduped against `question-attempts.md`, never leaked/real. Sections `## Generation rules`, `## Dedup against question-attempts`, `## Labeling`. Add forbidden-pattern rows guarding integrity:
-```
-real exam question	integrity: never claim questions are real
-leaked	integrity: no dumps
-braindump	integrity: no dumps
-```
-spec-coverage `spec-6-question-generator`, `spec-8-integrity`. Commit.
+Author `references/engines/question-generator.md`: original questions mapped to public objectives, always labeled `[GENERATED PRACTICE]`, deduped against `question-attempts.md`, never leaked/real. Sections `## Generation rules`, `## Dedup against question-attempts`, `## Labeling`. Add a **positive** required-sections check that the literal label `[GENERATED PRACTICE]` appears in this engine. (Do not add blunt forbidden greps for `leaked`/`real exam`/`braindump` — they false-positive on the engine's own "never leaked/real" rule; integrity against dumps is enforced by the engine's rules plus the final review.) spec-coverage `spec-6-question-generator`, `spec-8-integrity`. Commit.
 
 ## Task 13: Adaptive engine
 
