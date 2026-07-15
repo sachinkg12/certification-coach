@@ -3,3 +3,6 @@ references/commands/discover.md	provenance-engine
 references/commands/diagnose.md	assessment-engine
 references/commands/gaps.md	priority-engine
 references/engines/adaptive-engine.md	assessment-engine
+references/commands/learn.md	adaptive-engine
+references/commands/learn.md	analogy-engine
+references/commands/explain.md	analogy-engine

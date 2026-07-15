@@ -15,3 +15,6 @@ references/commands/plan.md
 references/engines/question-generator.md
 references/engines/adaptive-engine.md
 references/engines/analogy-engine.md
+references/commands/learn.md
+references/commands/explain.md
+references/coaching-voice.md

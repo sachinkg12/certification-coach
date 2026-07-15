@@ -14,3 +14,7 @@ spec-6-question-generator	references/engines/question-generator.md	original ques
 spec-8-integrity	references/engines/question-generator.md	integrity: original, labeled, no dumps
 spec-6-adaptive	references/engines/adaptive-engine.md	adaptive teaching loop state machine
 spec-6-analogy	references/engines/analogy-engine.md	real-world analogy engine with breakdown guardrails
+spec-5-learn	references/commands/learn.md	module 8 adaptive teaching loop
+spec-5-explain	references/commands/explain.md	explain command plain-language analogies
+spec-7-orchestration	SKILL.md	session protocol + priority hierarchy + routing
+spec-7-explainability	references/coaching-voice.md	explainability narrative
