@@ -67,3 +67,5 @@ SKILL.md	explain
 references/commands/quiz.md	## Modes
 references/commands/quiz.md	## Behavior
 references/commands/quiz.md	## Outputs
+references/engines/spaced-repetition-engine.md	## Schedule
+references/engines/spaced-repetition-engine.md	## Weak-area queue

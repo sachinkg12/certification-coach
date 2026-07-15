@@ -19,3 +19,4 @@ references/commands/learn.md
 references/commands/explain.md
 references/coaching-voice.md
 references/commands/quiz.md
+references/engines/spaced-repetition-engine.md
