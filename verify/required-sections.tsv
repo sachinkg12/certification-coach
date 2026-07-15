@@ -50,3 +50,5 @@ references/engines/question-generator.md	## Generation rules
 references/engines/question-generator.md	## Dedup against question-attempts
 references/engines/question-generator.md	## Labeling
 references/engines/question-generator.md	[GENERATED PRACTICE]
+references/engines/adaptive-engine.md	## Loop
+references/engines/adaptive-engine.md	## Remediation branch

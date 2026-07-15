@@ -2,3 +2,4 @@
 references/commands/discover.md	provenance-engine
 references/commands/diagnose.md	assessment-engine
 references/commands/gaps.md	priority-engine
+references/engines/adaptive-engine.md	assessment-engine
