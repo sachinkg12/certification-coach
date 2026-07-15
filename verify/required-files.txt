@@ -3,3 +3,4 @@ README.md
 VERSIONS.md
 LICENSE
 .gitignore
+references/state-schema.md

@@ -5,3 +5,15 @@ SKILL.md	## Commands
 README.md	## Install
 README.md	## Example
 .gitignore	.certicoach/
+references/state-schema.md	### index.md
+references/state-schema.md	### exam-facts.md
+references/state-schema.md	### profile.md
+references/state-schema.md	### diagnostic.md
+references/state-schema.md	### gap-analysis.md
+references/state-schema.md	### plan.md
+references/state-schema.md	### resources.md
+references/state-schema.md	### mistake-ledger.md
+references/state-schema.md	### spaced-repetition.md
+references/state-schema.md	### question-attempts.md
+references/state-schema.md	### readiness.md
+references/state-schema.md	### progress-log.md

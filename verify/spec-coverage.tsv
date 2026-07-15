@@ -1,2 +1,3 @@
 # spec-id<TAB>implementing-file<TAB>label — one row per numbered spec requirement
 spec-9	README.md	distribution/install docs
+spec-4	references/state-schema.md	per-user state data model
