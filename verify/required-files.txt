@@ -6,3 +6,4 @@ LICENSE
 references/state-schema.md
 references/engines/provenance-engine.md
 references/commands/discover.md
+references/commands/profile.md
