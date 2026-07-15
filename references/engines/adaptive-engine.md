@@ -189,16 +189,24 @@ answer under a new framing counts, because the whole point of remediation
 is verifying the concept transfers, not that the candidate memorized the
 correction.
 
-When the misconception clears, record the resolution: update the
-`mistake-ledger.md` row (or rows) for that misconception per its
-"Resolved" table — `Resolved on` date and "confirmed by" the fresh-scenario
-correct answer — and log the recovery in `plan.md`'s "Plan change log"
-(e.g. "remediation resolved: auth-vs-authz, 4 cycles, cleared on fresh
-scenario") so the plan's history explains both why the week ran long and
-that the extra time paid off. The loop then resumes step 5's normal
-related-but-different question on the *next* objective in the plan, not a
-further retest of the now-cleared concept — spaced review of it going
-forward is `spaced-repetition-engine`'s responsibility, not this loop's.
+When the misconception clears, the loop treats it as **provisionally
+cleared** — an in-session signal, not a certified resolution. Log the
+recovery in `plan.md`'s "Plan change log" (e.g. "remediation resolved:
+auth-vs-authz, 4 cycles, cleared on fresh scenario") so the plan's history
+explains both why the week ran long and that the extra time paid off, but
+do **not** move the `mistake-ledger.md` row to its "Resolved" table. The
+row stays open, and the concept enters `spaced-repetition-engine`'s
+1/3/7/14-day review schedule (its "Entering the schedule" rule) so the
+correction can be verified as durable rather than assumed durable from a
+single in-session answer. The row only moves to `## Resolved` later, once
+`spaced-repetition-engine` records four consecutive correct reviews across
+that full cadence with no reset — see `spaced-repetition-engine.md`'s
+"Provisional clearing vs. confirmed resolution" section for the exact rule
+this loop's exit condition feeds into. The loop then resumes step 5's
+normal related-but-different question on the *next* objective in the
+plan, not a further retest of the now-cleared concept — spaced review of
+it going forward is `spaced-repetition-engine`'s responsibility, not this
+loop's.
 
 If a misconception has not cleared after 5 remediation cycles within one
 session, the loop does not force a 6th cycle in the same sitting — it logs
