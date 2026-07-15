@@ -13,3 +13,4 @@ spec-5-plan	references/commands/plan.md	module 5 learning-path generation
 spec-6-question-generator	references/engines/question-generator.md	original question generator
 spec-8-integrity	references/engines/question-generator.md	integrity: original, labeled, no dumps
 spec-6-adaptive	references/engines/adaptive-engine.md	adaptive teaching loop state machine
+spec-6-analogy	references/engines/analogy-engine.md	real-world analogy engine with breakdown guardrails

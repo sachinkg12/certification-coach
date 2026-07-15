@@ -14,3 +14,4 @@ references/commands/gaps.md
 references/commands/plan.md
 references/engines/question-generator.md
 references/engines/adaptive-engine.md
+references/engines/analogy-engine.md
