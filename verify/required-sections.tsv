@@ -28,3 +28,6 @@ references/commands/profile.md	## Inputs
 references/commands/profile.md	## Outputs
 references/engines/assessment-engine.md	## Six-way classifier
 references/engines/assessment-engine.md	## Confidence calibration
+references/commands/diagnose.md	## Coverage
+references/commands/diagnose.md	## Protocol
+references/commands/diagnose.md	## Outputs

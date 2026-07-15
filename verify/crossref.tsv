@@ -1,2 +1,3 @@
 # src<TAB>token — populated as commands reference engines
 references/commands/discover.md	provenance-engine
+references/commands/diagnose.md	assessment-engine
