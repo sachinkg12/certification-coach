@@ -12,3 +12,4 @@ references/commands/diagnose.md
 references/engines/priority-engine.md
 references/commands/gaps.md
 references/commands/plan.md
+references/engines/question-generator.md
