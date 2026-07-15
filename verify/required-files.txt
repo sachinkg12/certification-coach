@@ -10,3 +10,4 @@ references/commands/profile.md
 references/engines/assessment-engine.md
 references/commands/diagnose.md
 references/engines/priority-engine.md
+references/commands/gaps.md

@@ -220,7 +220,7 @@ Computed: YYYY-MM-DD
 
 | Domain | Exam weight | Current level | Knowledge gap | Forgetting risk | Priority | Last reviewed |
 |---|---|---|---|---|---|---|
-| <domain> | <%> | <0-100> | <0-1> | <0-1> | <ExamWeight x KnowledgeGap x ForgettingRisk> | YYYY-MM-DD |
+| <domain> | <%> | <0-100> | <0-1> | <0-1> | <ExamWeight × KnowledgeGap × ForgettingRisk> | YYYY-MM-DD |
 
 ## Ranked priorities
 

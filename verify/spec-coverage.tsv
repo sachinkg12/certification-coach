@@ -8,3 +8,4 @@ spec-5-profile	references/commands/profile.md	module 2 candidate profiling
 spec-6-assessment	references/engines/assessment-engine.md	six-way answer classifier + calibration
 spec-5-diagnose	references/commands/diagnose.md	module 3 baseline diagnostic
 spec-6-priority	references/engines/priority-engine.md	priority formula + forgetting-risk model
+spec-5-gaps	references/commands/gaps.md	module 4 gap analysis

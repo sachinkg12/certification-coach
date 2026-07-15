@@ -34,3 +34,6 @@ references/commands/diagnose.md	## Outputs
 references/engines/priority-engine.md	## Formula
 references/engines/priority-engine.md	## Forgetting-risk model
 references/engines/priority-engine.md	Priority = ExamWeight × KnowledgeGap × ForgettingRisk
+references/commands/gaps.md	## Readiness table
+references/commands/gaps.md	## Priority computation
+references/commands/gaps.md	## Outputs
