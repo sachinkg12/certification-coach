@@ -31,3 +31,6 @@ references/engines/assessment-engine.md	## Confidence calibration
 references/commands/diagnose.md	## Coverage
 references/commands/diagnose.md	## Protocol
 references/commands/diagnose.md	## Outputs
+references/engines/priority-engine.md	## Formula
+references/engines/priority-engine.md	## Forgetting-risk model
+references/engines/priority-engine.md	Priority = ExamWeight × KnowledgeGap × ForgettingRisk
