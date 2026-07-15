@@ -67,6 +67,9 @@ SKILL.md	explain
 references/commands/quiz.md	## Modes
 references/commands/quiz.md	## Behavior
 references/commands/quiz.md	## Outputs
+references/commands/lab.md	## Exercise types
+references/commands/lab.md	## Evaluation
+references/commands/lab.md	## Outputs
 references/engines/spaced-repetition-engine.md	## Schedule
 references/engines/spaced-repetition-engine.md	## Weak-area queue
 references/commands/review.md	## Review modes

@@ -19,5 +19,6 @@ references/commands/learn.md
 references/commands/explain.md
 references/coaching-voice.md
 references/commands/quiz.md
+references/commands/lab.md
 references/engines/spaced-repetition-engine.md
 references/commands/review.md
