@@ -24,3 +24,4 @@ references/engines/spaced-repetition-engine.md
 references/commands/review.md
 references/commands/resources.md
 references/engines/readiness-engine.md
+references/commands/mock.md
