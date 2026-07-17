@@ -1,0 +1,20 @@
+# src<TAB>token — populated as commands reference engines
+references/commands/discover.md	provenance-engine
+references/commands/diagnose.md	assessment-engine
+references/commands/gaps.md	priority-engine
+references/engines/adaptive-engine.md	assessment-engine
+references/commands/learn.md	adaptive-engine
+references/commands/learn.md	analogy-engine
+references/commands/explain.md	analogy-engine
+references/commands/quiz.md	question-generator
+references/commands/quiz.md	assessment-engine
+references/commands/lab.md	assessment-engine
+references/commands/review.md	spaced-repetition-engine
+references/commands/review.md	question-generator
+references/commands/resources.md	provenance-engine
+references/engines/readiness-engine.md	assessment-engine
+references/commands/mock.md	question-generator
+references/commands/mock.md	readiness-engine
+references/commands/readiness.md	readiness-engine
+references/commands/logistics.md	provenance-engine
+references/commands/progress.md	coaching-voice

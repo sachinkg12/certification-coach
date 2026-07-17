@@ -1,0 +1,99 @@
+SKILL.md	name: certicoach
+SKILL.md	## Priority Hierarchy
+SKILL.md	## Session Protocol
+SKILL.md	## Commands
+README.md	## Install
+README.md	## Example
+.gitignore	.certicoach/
+references/state-schema.md	### index.md
+references/state-schema.md	### exam-facts.md
+references/state-schema.md	### profile.md
+references/state-schema.md	### diagnostic.md
+references/state-schema.md	### gap-analysis.md
+references/state-schema.md	### plan.md
+references/state-schema.md	### resources.md
+references/state-schema.md	### mistake-ledger.md
+references/state-schema.md	### spaced-repetition.md
+references/state-schema.md	### question-attempts.md
+references/state-schema.md	### readiness.md
+references/state-schema.md	### progress-log.md
+references/engines/provenance-engine.md	## Content tiers
+references/engines/provenance-engine.md	## Persistence rule
+references/engines/provenance-engine.md	## Version-awareness alerts
+references/engines/provenance-engine.md	## No-web degradation
+references/commands/discover.md	## Inputs
+references/commands/discover.md	## Research protocol
+references/commands/discover.md	## Outputs
+references/commands/profile.md	## Inputs
+references/commands/profile.md	## Outputs
+references/engines/assessment-engine.md	## Six-way classifier
+references/engines/assessment-engine.md	## Confidence calibration
+references/commands/diagnose.md	## Coverage
+references/commands/diagnose.md	## Protocol
+references/commands/diagnose.md	## Outputs
+references/engines/priority-engine.md	## Formula
+references/engines/priority-engine.md	## Forgetting-risk model
+references/engines/priority-engine.md	Priority = ExamWeight × KnowledgeGap × ForgettingRisk
+references/commands/gaps.md	## Readiness table
+references/commands/gaps.md	## Priority computation
+references/commands/gaps.md	## Outputs
+references/commands/plan.md	## Path archetypes
+references/commands/plan.md	## Weekly structure
+references/commands/plan.md	## Outputs
+references/commands/plan.md	fast-track
+references/commands/plan.md	balanced
+references/commands/plan.md	deep-mastery
+references/commands/plan.md	weekend-only
+references/commands/plan.md	experienced-professional
+references/commands/plan.md	beginner
+references/engines/question-generator.md	## Generation rules
+references/engines/question-generator.md	## Dedup against question-attempts
+references/engines/question-generator.md	## Labeling
+references/engines/question-generator.md	[GENERATED PRACTICE]
+references/engines/adaptive-engine.md	## Loop
+references/engines/adaptive-engine.md	## Remediation branch
+references/engines/analogy-engine.md	## Analogy contract
+references/engines/analogy-engine.md	## Where this breaks down
+references/engines/analogy-engine.md	## Worked example
+references/commands/learn.md	## Teaching loop
+references/commands/learn.md	## Outputs
+references/commands/explain.md	## Behavior
+references/commands/explain.md	## Outputs
+references/coaching-voice.md	## Explainability
+SKILL.md	Session state
+SKILL.md	.certicoach/index.md
+SKILL.md	discover
+SKILL.md	explain
+references/commands/quiz.md	## Modes
+references/commands/quiz.md	## Behavior
+references/commands/quiz.md	## Outputs
+references/commands/lab.md	## Exercise types
+references/commands/lab.md	## Evaluation
+references/commands/lab.md	## Outputs
+references/engines/spaced-repetition-engine.md	## Schedule
+references/engines/spaced-repetition-engine.md	## Weak-area queue
+references/commands/review.md	## Review modes
+references/commands/review.md	## Outputs
+references/commands/resources.md	## Categories
+references/commands/resources.md	## Curation
+references/commands/resources.md	## Outputs
+references/engines/readiness-engine.md	## Signals
+references/engines/readiness-engine.md	## Verdict rules
+references/engines/readiness-engine.md	Not ready
+references/engines/readiness-engine.md	Nearly ready
+references/engines/readiness-engine.md	Exam ready
+references/engines/readiness-engine.md	Ready with specific risks
+references/commands/mock.md	## Simulation fidelity
+references/commands/mock.md	## Behavior
+references/commands/mock.md	## Outputs
+references/commands/readiness.md	## Behavior
+references/commands/readiness.md	## Outputs
+references/commands/logistics.md	## Registration & setup
+references/commands/logistics.md	## Exam-day strategy
+references/commands/logistics.md	## Final 24 hours
+references/commands/postexam.md	## Capture & analyze
+references/commands/postexam.md	## Next steps
+references/commands/postexam.md	## Renewal tracking
+references/commands/progress.md	## Weekly report
+references/commands/progress.md	## Streak & milestones
+references/commands/progress.md	## Missed-plan recovery
