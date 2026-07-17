@@ -140,6 +140,25 @@ structure.
       domains from that score report — not a full restart of the original
       plan.
 
+## Wave 6 — Local tracking: `dashboard`
+
+- [ ] Fixture smoke test: given a seeded `.certicoach/` directory for the
+      golden fixture (AWS SAA-C03), running `dashboard` produces
+      `.certicoach/dashboard.html` that:
+  - [ ] (a) opens in a browser (valid, well-formed HTML — no truncated tags,
+        no unclosed elements).
+  - [ ] (b) shows all seven one-screen panels populated from the seeded
+        numbers: header (cert name, provider, exam date, status, updated
+        timestamp), readiness hero, domain bars, due-today & streak strip,
+        mistake ledger, next action, and footer.
+  - [ ] (c) contains no `http(s)://` anywhere in the file (self-contained —
+        `grep -c 'https\?://' .certicoach/dashboard.html` → `0`).
+  - [ ] (d) did not modify any other file under `.certicoach/` — every state
+        file (`index.md`, `exam-facts.md`, `gap-analysis.md`,
+        `spaced-repetition.md`, `mistake-ledger.md`, `plan.md`,
+        `progress-log.md`, `readiness.md`) is byte-identical before and
+        after the run; `dashboard` only ever writes `dashboard.html`.
+
 ## Cross-cutting: anti-hallucination pass
 
 - [ ] Scan every `.certicoach/<cert-slug>/*.md` file produced during this

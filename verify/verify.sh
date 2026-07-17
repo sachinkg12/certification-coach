@@ -51,5 +51,13 @@ while IFS=$'\t' read -r sid impl label; do
   else bad "$sid ($label) not implemented: $impl"; fi
 done < verify/spec-coverage.tsv
 
+echo "== self-contained files (no external URLs) =="
+while IFS= read -r f; do
+  [ -z "$f" ] && continue; case "$f" in \#*) continue;; esac
+  if [ -f "$f" ] && grep -Eq 'https?://' "$f"; then
+    bad "external URL in self-contained file: $f";
+  else pass "self-contained: $f"; fi
+done < verify/self-contained-files.txt
+
 echo; if [ "$fail" -eq 0 ]; then echo "ALL CHECKS PASSED"; else echo "CHECKS FAILED"; fi
 exit "$fail"

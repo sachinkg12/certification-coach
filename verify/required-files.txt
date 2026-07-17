@@ -29,3 +29,5 @@ references/commands/readiness.md
 references/commands/logistics.md
 references/commands/postexam.md
 references/commands/progress.md
+references/dashboard-template.html
+references/commands/dashboard.md

@@ -97,3 +97,11 @@ references/commands/postexam.md	## Renewal tracking
 references/commands/progress.md	## Weekly report
 references/commands/progress.md	## Streak & milestones
 references/commands/progress.md	## Missed-plan recovery
+references/dashboard-template.html	{{READINESS_PCT}}
+references/dashboard-template.html	{{DOMAIN_BARS}}
+references/dashboard-template.html	prefers-color-scheme
+references/commands/dashboard.md	## Inputs
+references/commands/dashboard.md	## Rendering
+references/commands/dashboard.md	## Outputs
+SKILL.md	dashboard
+VERSIONS.md	## v0.2.0

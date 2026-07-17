@@ -1,0 +1,380 @@
+<!--
+  CertiCoach dashboard — self-contained template.
+  The `dashboard` command reads .certicoach/ state files, fills the slots
+  below, and writes the result to .certicoach/dashboard.html. This file must
+  stay fully self-contained: inline CSS/JS only, system fonts only, no
+  external network references of any kind.
+
+  SLOTS: {{CERT_NAME}} {{PROVIDER}} {{EXAM_DATE}} {{STATUS_WORD}}
+  {{UPDATED_TS}} {{READINESS_PCT}} {{READINESS_LINE}} {{DOMAIN_BARS}}
+  {{DUE_STREAK}} {{LEDGER}} {{NEXT_ACTION}} {{OTHER_CERTS}}
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light dark" />
+<title>CertiCoach Dashboard</title>
+<style>
+  /* ---------- tokens ---------- */
+  :root {
+    --paper: #f7f5f0;
+    --surface: #ffffff;
+    --ink: #201d18;
+    --ink-2: #5b564c;
+    --ink-3: #6f695b;
+    --hairline: #ddd7c9;
+    --accent: #1f3a5f;      /* deep ink-blue */
+    --accent-2: #3a5a82;
+    --needs-work: #a15c3d;  /* muted terracotta */
+    --needs-work-2: #9c5837;
+    --track: #e7e2d6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #16171a;
+      --surface: #1d1f22;
+      --ink: #f1efe8;
+      --ink-2: #bab4a6;
+      --ink-3: #85806f;
+      --hairline: #34332d;
+      --accent: #86a9cd;
+      --accent-2: #a3c0dd;
+      --needs-work: #d98a67;
+      --needs-work-2: #e6a284;
+      --track: #2b2a26;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #16171a;
+    --surface: #1d1f22;
+    --ink: #f1efe8;
+    --ink-2: #bab4a6;
+    --ink-3: #85806f;
+    --hairline: #34332d;
+    --accent: #86a9cd;
+    --accent-2: #a3c0dd;
+    --needs-work: #d98a67;
+    --needs-work-2: #e6a284;
+    --track: #2b2a26;
+  }
+  :root[data-theme="light"] {
+    --paper: #f7f5f0;
+    --surface: #ffffff;
+    --ink: #201d18;
+    --ink-2: #5b564c;
+    --ink-3: #6f695b;
+    --hairline: #ddd7c9;
+    --accent: #1f3a5f;
+    --accent-2: #3a5a82;
+    --needs-work: #a15c3d;
+    --needs-work-2: #9c5837;
+    --track: #e7e2d6;
+  }
+
+  /* ---------- base ---------- */
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .num, .fig, td.num-cell, .stat-value {
+    font-variant-numeric: tabular-nums;
+  }
+  h1, h2, h3, .display {
+    font-family: ui-serif, Georgia, "Times New Roman", serif;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0;
+  }
+  a { color: var(--accent); }
+
+  .page {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: clamp(1.25rem, 4vw, 3rem) clamp(1.25rem, 4vw, 2rem) 4rem;
+  }
+  .divider {
+    border: none;
+    border-top: 1px solid var(--hairline);
+    margin: clamp(1.5rem, 4vw, 2.5rem) 0;
+  }
+
+  /* ---------- header ---------- */
+  header.masthead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+  }
+  .masthead .identity {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 0.6rem;
+  }
+  .masthead h1 {
+    font-size: 1.15rem;
+    letter-spacing: 0.01em;
+  }
+  .masthead .provider {
+    color: var(--ink-2);
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+  .status-pill {
+    display: inline-block;
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    padding: 0.15rem 0.7rem;
+    font-size: 0.8rem;
+    color: var(--ink-2);
+    white-space: nowrap;
+  }
+  .updated {
+    color: var(--ink-3);
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  /* ---------- readiness hero ---------- */
+  .hero {
+    padding: clamp(1.5rem, 5vw, 2.5rem) 0;
+  }
+  .hero .display {
+    font-size: clamp(4rem, 13vw, 6.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .hero .display .unit {
+    font-size: 0.4em;
+    color: var(--ink-2);
+    margin-left: 0.15em;
+  }
+  .hero .readiness-line {
+    margin-top: 0.75rem;
+    max-width: 34rem;
+    color: var(--ink-2);
+    font-size: 1.05rem;
+  }
+
+  /* ---------- section titles ---------- */
+  section h2 {
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  /* ---------- domain bars ---------- */
+  .domain-row {
+    margin-bottom: 0.9rem;
+  }
+  .domain-row:last-child { margin-bottom: 0; }
+  .domain-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.92rem;
+    margin-bottom: 0.3rem;
+  }
+  .domain-name { color: var(--ink); }
+  .domain-pct { color: var(--ink-2); }
+  .domain-pct.needs-work-text { color: var(--needs-work-2); }
+  .bar-track {
+    height: 10px;
+    border-radius: 2px;
+    background: var(--track);
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--accent);
+  }
+  .bar-fill.needs-work {
+    background: var(--needs-work);
+  }
+
+  /* ---------- due & streak strip ---------- */
+  .strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+    gap: 1.25rem;
+  }
+  .stat {
+    border-left: 1px solid var(--hairline);
+    padding-left: 0.9rem;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .stat-value {
+    font-family: ui-serif, Georgia, "Times New Roman", serif;
+    font-size: 1.7rem;
+    margin-top: 0.15rem;
+  }
+  .stat-detail {
+    font-size: 0.85rem;
+    color: var(--ink-2);
+    margin-top: 0.2rem;
+  }
+
+  /* ---------- ledger ---------- */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+  }
+  table.ledger {
+    width: 100%;
+    min-width: 30rem;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  table.ledger th, table.ledger td {
+    text-align: left;
+    padding: 0.55rem 0.9rem;
+    border-bottom: 1px solid var(--hairline);
+    white-space: nowrap;
+  }
+  table.ledger th {
+    color: var(--ink-3);
+    font-weight: 500;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: var(--surface);
+  }
+  table.ledger tr:last-child td { border-bottom: none; }
+  table.ledger td.status-open { color: var(--needs-work-2); }
+  table.ledger td.status-resolved { color: var(--ink-2); }
+  .ledger-summary {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--ink-2);
+  }
+
+  /* ---------- next action ---------- */
+  .next-action {
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--accent);
+    border-radius: 2px;
+    padding: 1rem 1.25rem;
+    background: var(--surface);
+    font-size: 0.98rem;
+  }
+
+  /* ---------- footer ---------- */
+  footer {
+    color: var(--ink-3);
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+  footer .other-certs {
+    margin-top: 0.35rem;
+    color: var(--ink-2);
+  }
+
+  @media (max-width: 30rem) {
+    .masthead { flex-direction: column; align-items: flex-start; }
+    .stat { padding-left: 0.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="masthead">
+    <div class="identity">
+      <h1>{{CERT_NAME}}</h1>
+      <span class="provider">{{PROVIDER}} &middot; exam {{EXAM_DATE}}</span>
+      <span class="status-pill">{{STATUS_WORD}}</span>
+    </div>
+    <span class="updated">updated {{UPDATED_TS}}</span>
+  </header>
+
+  <hr class="divider" />
+
+  <section class="hero">
+    <div class="display num">{{READINESS_PCT}}<span class="unit">%</span></div>
+    <p class="readiness-line">{{READINESS_LINE}}</p>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="domains">
+    <h2>Domains</h2>
+    <!-- The command replaces the {{DOMAIN_BARS}} token below with one
+         .domain-row per exam domain, e.g.:
+         <div class="domain-row">
+           <div class="domain-label">
+             <span class="domain-name">Domain name</span>
+             <span class="domain-pct">72%</span>
+           </div>
+           <div class="bar-track"><div class="bar-fill" style="width:72%"></div></div>
+         </div>
+         A domain that needs work adds class="needs-work" to .bar-fill and
+         class="needs-work-text" to .domain-pct — still labelled, never
+         color-only. -->
+    {{DOMAIN_BARS}}
+  </section>
+
+  <hr class="divider" />
+
+  <section class="due-streak">
+    <h2>This week</h2>
+    <div class="strip">
+      {{DUE_STREAK}}
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="ledger-section">
+    <h2>Mistake ledger</h2>
+    <div class="table-wrap">
+      <table class="ledger">
+        <thead>
+          <tr><th>Item</th><th>Status</th><th>Next review</th></tr>
+        </thead>
+        <tbody>
+          {{LEDGER}}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="next-action-section">
+    <h2>Next action</h2>
+    <div class="next-action">{{NEXT_ACTION}}</div>
+  </section>
+
+  <hr class="divider" />
+
+  <footer>
+    <p>Generated from your local <code>.certicoach/</code> files &middot; re-run
+    <code>dashboard</code> to refresh &middot; your data never leaves this machine.</p>
+    <p class="other-certs">{{OTHER_CERTS}}</p>
+  </footer>
+
+</div>
+</body>
+</html>

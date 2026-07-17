@@ -90,12 +90,16 @@ ends. A session that stops abruptly must never lose a completed workflow's
 results because the write was held back for a session-end batch that never
 happened.
 
+At session end, run `dashboard` to regenerate `.certicoach/dashboard.html`
+from the state just written, so the next session (or a candidate checking in
+between sessions) always finds it current rather than stale.
+
 ## Commands
 
 Every command lives at `references/commands/<command>.md` (engines it
 depends on live at `references/engines/<engine>.md`); this table is the
 routing catalog CertiCoach uses to decide which reference file to load for
-a given request. All 16 commands below have a reference file, and every
+a given request. All 17 commands below have a reference file, and every
 engine they depend on lives under `references/engines/`.
 
 | Command | Purpose | Reference |
@@ -116,3 +120,4 @@ engine they depend on lives under `references/engines/`.
 | `logistics` | Cover exam-day logistics and final preparation. | `references/commands/logistics.md` |
 | `postexam` | Capture results, plan retakes, and recommend next steps. | `references/commands/postexam.md` |
 | `progress` | Report weekly progress and explain plan changes. | `references/commands/progress.md` |
+| `dashboard` | Render a local, self-contained HTML progress tracker from current state. | `references/commands/dashboard.md` |
