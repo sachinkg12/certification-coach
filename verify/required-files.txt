@@ -25,3 +25,4 @@ references/commands/review.md
 references/commands/resources.md
 references/engines/readiness-engine.md
 references/commands/mock.md
+references/commands/readiness.md

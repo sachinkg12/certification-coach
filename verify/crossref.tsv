@@ -15,3 +15,4 @@ references/commands/resources.md	provenance-engine
 references/engines/readiness-engine.md	assessment-engine
 references/commands/mock.md	question-generator
 references/commands/mock.md	readiness-engine
+references/commands/readiness.md	readiness-engine
