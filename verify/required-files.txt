@@ -28,3 +28,4 @@ references/commands/mock.md
 references/commands/readiness.md
 references/commands/logistics.md
 references/commands/postexam.md
+references/commands/progress.md

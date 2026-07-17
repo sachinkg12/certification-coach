@@ -28,3 +28,4 @@ spec-5-mock	references/commands/mock.md	module 11 exam simulation
 spec-5-readiness	references/commands/readiness.md	module 12 readiness scoring
 spec-5-logistics	references/commands/logistics.md	module 13 exam strategy & logistics
 spec-5-postexam	references/commands/postexam.md	module 14 post-exam flow
+spec-5-progress	references/commands/progress.md	progress tracking + explainability
