@@ -93,9 +93,8 @@ happened.
 Every command lives at `references/commands/<command>.md` (engines it
 depends on live at `references/engines/<engine>.md`); this table is the
 routing catalog CertiCoach uses to decide which reference file to load for
-a given request. Not every command below has a reference file yet — the
-table names the full 16-command surface regardless, so routing intent is
-stable even as later modules are filled in.
+a given request. All 16 commands below have a reference file, and every
+engine they depend on lives under `references/engines/`.
 
 | Command | Purpose | Reference |
 |---|---|---|

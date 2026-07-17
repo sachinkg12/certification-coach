@@ -29,3 +29,8 @@ spec-5-readiness	references/commands/readiness.md	module 12 readiness scoring
 spec-5-logistics	references/commands/logistics.md	module 13 exam strategy & logistics
 spec-5-postexam	references/commands/postexam.md	module 14 post-exam flow
 spec-5-progress	references/commands/progress.md	progress tracking + explainability
+spec-1	SKILL.md	summary / skill entry point
+spec-2	references/engines/provenance-engine.md	goals & non-goals enforced (anti-hallucination/no-dumps/agnostic)
+spec-3	SKILL.md	architecture (orchestrator + references layout)
+spec-10	docs/superpowers/plans/2026-07-14-certicoach.md	build order (waves)
+spec-11	verify/spec-checklist.md	behavioral verification
