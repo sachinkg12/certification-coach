@@ -26,3 +26,4 @@ spec-5-resources	references/commands/resources.md	module 6 material selection
 spec-6-readiness	references/engines/readiness-engine.md	multi-signal readiness verdict
 spec-5-mock	references/commands/mock.md	module 11 exam simulation
 spec-5-readiness	references/commands/readiness.md	module 12 readiness scoring
+spec-5-logistics	references/commands/logistics.md	module 13 exam strategy & logistics
