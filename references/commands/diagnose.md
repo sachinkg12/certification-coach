@@ -126,6 +126,9 @@ entry is appended (prior attempts are never discarded, per
 
 - **Domains covered** — the full domain list from `exam-facts.md`, confirming
   no domain was skipped.
+- **`Calibration:`** field — the verdict from `assessment-engine`'s
+  `calibration(history)`, computed once the full attempt is complete:
+  `calibrated`, `overconfident`, or `underconfident`.
 - **`### Answers`** table — one row per question, with columns `#`, `Domain`,
   `Question type` (conceptual | scenario | hands-on), `Confidence (1-5)`,
   `I guessed` (yes | no), `Correct` (yes | no), and `Signal`. The `Signal`

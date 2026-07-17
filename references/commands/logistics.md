@@ -126,8 +126,8 @@ penalty. These are **provider-specific facts** you must verify in your
 - Typically, rescheduling requires 24–72 hours' notice before the exam
 - Canceling within 24 hours usually forfeits your exam fee entirely
 - Some providers offer one free reschedule; others charge a fee each time
-- If you miss your exam (no-show), you forfeit your fee and must re-register
-  and pay again
+- Typically, if you miss your exam (no-show), you forfeit your fee and must
+  re-register and pay again
 
 **What to do:** Before exam day, know your provider's exact rescheduling
 deadline. If you're sick, injured, or must reschedule, contact the provider

@@ -69,6 +69,8 @@ route straight to `discover`. Otherwise:
    `references/coaching-voice.md`'s explainability rule. Examples of the
    reasoning, in the order state is checked:
    - No `diagnostic.md` yet → recommend `diagnose`.
+   - A `diagnostic.md` exists but `gap-analysis.md` or `plan.md` doesn't yet
+     → recommend `gaps`, then `plan`.
    - A `mock` attempt is overdue relative to the target date and plan
      stage → recommend `mock`.
    - `mistake-ledger.md` or `spaced-repetition.md` has items past their

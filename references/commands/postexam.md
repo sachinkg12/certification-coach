@@ -313,14 +313,19 @@ current: <cert-slug or empty>
 
 ## Certifications
 
-| Slug | Name | Provider | Target date | Status | Renewal deadline | Last session |
-|---|---|---|---|---|---|---|
-| <cert-slug> | <exam name> | <provider> | <original target, or NA if passed> | passed | YYYY-MM-DD | YYYY-MM-DD |
+| Slug | Name | Provider | Target date | Status | Last session |
+|---|---|---|---|---|---|
+| <cert-slug> | <exam name> | <provider> | <original target, or NA if passed> | passed | YYYY-MM-DD |
 
 ## Notes
 
 - <cert-slug>: Passed 2025-06-15. Renewal required every 3 years; deadline 2028-06-15. Start renewal prep in 2028-03.
 ```
+
+The renewal deadline itself is not a column in this table — per
+`state-schema.md`'s canonical `index.md` template, it belongs in the
+`## Notes` line above (and in `exam-result.md` / `exam-facts.md`, where the
+underlying renewal facts are sourced).
 
 ### Renewal options
 

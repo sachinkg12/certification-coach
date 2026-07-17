@@ -31,6 +31,7 @@ Directory shape:
     question-attempts.md
     readiness.md
     progress-log.md
+    exam-result.md    (postexam-local: captured exam result + score report)
 ```
 
 `<cert-slug>` is a lowercase, hyphenated identifier derived from the exam
@@ -181,6 +182,8 @@ can compute the 6-way classification and confidence calibration later.
 
 Domains covered: <list>
 
+Calibration: calibrated | overconfident | underconfident
+
 ### Answers
 
 | # | Domain | Question type | Confidence (1-5) | I guessed | Correct | Signal |
@@ -203,6 +206,12 @@ guessed correctly, has a misconception, cannot apply. Confidence and
 correctness together (not correctness alone) determine which signal
 applies — e.g. correct + `I guessed: yes` maps to "guessed correctly," not
 "knows."
+
+The per-attempt `Calibration:` field is the verdict from
+`assessment-engine`'s `calibration(history)`, computed once over the full
+attempt after every domain has been covered — one of `calibrated`,
+`overconfident`, or `underconfident` — describing how well the candidate's
+stated confidence tracked their actual correctness across this attempt.
 
 ---
 
@@ -296,8 +305,8 @@ Exam version matched: <version identifier, must match exam-facts.md>
 
 ### mistake-ledger.md
 
-Written by `learn`, `quiz`, `mock`, and `review`. One row per missed or
-flagged question. Columns are fixed: Question, User answer, Correct, Root
+Written by `learn`, `quiz`, `mock`, `lab`, and `review`. One row per missed
+or flagged question. Columns are fixed: Question, User answer, Correct, Root
 cause, Objective, Next review.
 
 ```markdown

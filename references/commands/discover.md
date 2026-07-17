@@ -67,6 +67,9 @@ registry, official changelog/blog) and calls `provenance-engine`'s
 - **Exam duration** — in minutes, as stated by the provider.
 - **Number and type of questions** — total count and the question formats
   used (multiple choice, multi-select, performance-based, case study, etc.).
+- **Delivery mode(s) offered** — online proctored, test center, or both, as
+  published by the provider (`logistics` reads this from `exam-facts.md`'s
+  `Delivery:` field).
 - **Passing-score policy** — the provider's own description of how passing
   is determined (scaled score, percentage, or an undisclosed scoring model
   stated as such — never a guessed number).
