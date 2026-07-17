@@ -116,23 +116,43 @@ the same):
 
 ### Decision order
 
-Apply the checks in this order, since a candidate can pass most rules
-individually while still carrying one disqualifying signal:
+Apply the checks in this order: verdict 1 is checked first, then 2, then
+3, then 4, and the first verdict whose conditions are met is the one
+written to `readiness.md` — no later verdict is evaluated once an
+earlier one matches. A candidate can pass most rules individually while
+still carrying one disqualifying signal, which is why the order matters
+and not just the rule set in isolation. This ordering makes the four
+verdicts both mutually exclusive and exhaustive: each verdict's
+conditions below explicitly exclude the previous verdict's triggers
+(**Nearly ready** requires that no **Not ready** trigger applies,
+**Ready with specific risks** requires rules 1-4 satisfied outright, and
+**Exam ready** requires all five rules satisfied with no residual risk),
+and every input matches at least **Not ready**'s default condition if it
+matches nothing more specific, so no input falls through without a
+verdict.
 
-1. **Not ready** — Fewer than 3 passing mocks recorded, or the average
-   score across recent attempts is below the passing threshold, or scores
-   are unstable (wide swings across days with no upward trend), or two or
-   more domains sit below the 70% minimum. This is the default verdict
-   whenever the core score/stability/domain-floor signals have not yet
-   been met — no combination of strong secondary signals (fast times,
-   good calibration) upgrades a candidate out of **Not ready** while the
-   primary bar is unmet.
-2. **Nearly ready** — The primary score bar is close but not yet met: for
-   example, 1-2 passing mocks with an upward trend, or exactly one domain
-   marginally below 70%, or unseen-question accuracy in the mid-70s
-   rather than at 80%. The candidate is progressing correctly and the gap
-   is specific and closeable, but rule 1, 2, or 3 above is not yet
-   satisfied outright.
+1. **Not ready** — Fewer than 3 passing mocks recorded **with no upward
+   trend** across recent attempts (i.e., the candidate is not yet on a
+   passing trajectory per the "Score stability" signal above), or the
+   average score across recent attempts is below the passing threshold,
+   or scores are unstable (wide swings across days with no upward
+   trend), or two or more domains sit below the 70% minimum. This is the
+   default verdict whenever the core score/stability/domain-floor
+   signals have not yet been met — no combination of strong secondary
+   signals (fast times, good calibration) upgrades a candidate out of
+   **Not ready** while the primary bar is genuinely unmet. An upward
+   trend is not a secondary signal in this reckoning — it is part of the
+   primary score/stability bar itself — so a sub-3-mock candidate who is
+   already trending upward does not land here; see **Nearly ready**
+   below for where that case lands instead.
+2. **Nearly ready** — The primary score bar is close but not yet met,
+   and none of rule 1's **Not ready** triggers apply: for example, 1-2
+   passing mocks **with an upward trend** (the trend is precisely what
+   keeps this case out of **Not ready** despite the mock count sitting
+   below rule 1's "at least 3"), or exactly one domain marginally below
+   70%, or unseen-question accuracy in the mid-70s rather than at 80%.
+   The candidate is progressing correctly and the gap is specific and
+   closeable, but rule 1, 2, or 3 above is not yet satisfied outright.
 3. **Ready with specific risks** — All of rules 1-4 are satisfied (score,
    domain floors, unseen accuracy, and timing all clear), but rule 5 or
    one narrower residual risk remains — a single domain that clears 70%
